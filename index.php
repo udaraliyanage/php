@@ -1,7 +1,7 @@
 <?php
 echo "udara.php"
-$host=getenv(MYSQL_HOST),
-$pass=getenv(MYSQL_PASSWORD),
+$host=getenv('MYSQL_HOST'),
+$pass=getenv('MYSQL_PASSWORD'),
 echo "MySQL host : $host"
 echo "MySQL pass : $pass"
 
