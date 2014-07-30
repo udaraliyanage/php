@@ -1,21 +1,38 @@
 <?php
-echo "udara.php"
-$host=getenv('MYSQL_HOST'),
-$pass=getenv('MYSQL_PASSWORD'),
-echo "MySQL host : $host"
-echo "MySQL pass : $pass"
 
-$con=mysqli_connect("54.254.93.255","root","dekfzjtx","sugarcrm");
-if (mysqli_connect_errno()) {
-  echo "Failed to connect to MySQL: " . mysqli_connect_error();
+$host=getenv('MYSQL_HOST');
+$pass=getenv('MYSQL_PASSWORD');
+echo "MySQL host : $host";
+echo "<br/>";
+echo "MySQL pass : $pass";
+echo "<br/>";
+echo "<br/>";
+
+$link = mysql_connect($host, 'root',$pass)
+    or die('Could not connect: ' . mysql_error());
+echo 'Connected successfully';
+mysql_select_db('demo') or die('Could not select database');
+
+// Performing SQL query
+$query = 'SELECT   * FROM users';
+$result = mysql_query($query) or die('Query failed: ' . mysql_error());
+
+// Printing results in HTML
+echo "<table>\n";
+while ($line = mysql_fetch_array($result, MYSQL_ASSOC)) {
+    echo "\t<tr>\n";
+    foreach ($line as $col_value) {
+        echo "\t\t<td>$col_value</td>\n";
+    }
+    echo "\t</tr>\n";
 }
+echo "</table>\n";
 
-$result = mysqli_query($con,"SELECT * FROM users");
+// Free resultset
+mysql_free_result($result);
 
-while($row = mysqli_fetch_array($result)) {
-  echo $row['Id'] . " " . $row['Name'];
-  echo "<br>";
-}
+// Closing connection
+mysql_close($link);
 
-mysqli_close($con);
 ?>
+
