@@ -8,10 +8,13 @@ echo "MySQL pass : $pass";
 echo "<br/>";
 echo "<br/>";
 
-  echo "My IP adress is ".$_SERVER['SERVER_ADDR'];
+  
   
 $link = mysql_connect($host, 'root',$pass)
     or die('Could not connect: ' . mysql_error());
+    
+echo "My IP adress is ".$_SERVER['SERVER_ADDR'];
+
 echo 'Connected successfully';
 mysql_select_db('demo') or die('Could not select database');
 
