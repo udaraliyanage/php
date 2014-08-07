@@ -16,7 +16,7 @@ mysql_select_db('demo') or die('Could not select database');
 // Performing SQL query
 $query = 'SELECT   * FROM users';
 $result = mysql_query($query) or die('Query failed: ' . mysql_error());
-
+echo "My IP address is $_SERVER['SERVER_ADDR']"
 // Printing results in HTML
 echo "<table>\n";
 while ($line = mysql_fetch_array($result, MYSQL_ASSOC)) {
