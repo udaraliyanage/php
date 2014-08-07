@@ -9,7 +9,7 @@ echo "<br/>";
 echo "<br/>";
 
   
-  
+echo "This is a testing comment ";
 $link = mysql_connect($host, 'root',$pass)
     or die('Could not connect: ' . mysql_error());
     
