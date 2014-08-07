@@ -15,7 +15,7 @@ $link = mysql_connect($host, 'root',$pass)
     
 echo "My IP adress is ".$_SERVER['SERVER_ADDR'];
 
-echo '\nConnected successfully';
+echo "\nConnected successfully";
 mysql_select_db('demo') or die('Could not select database');
 
 // Performing SQL query
