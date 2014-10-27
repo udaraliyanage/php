@@ -1,5 +1,5 @@
 <?php
-
+$USER=getenv('MYSQL_USER_NAME');
 $host=getenv('MYSQL_HOST');
 $pass=getenv('MYSQL_PASSWORD');
 echo "MySQL host : $host";
@@ -10,7 +10,7 @@ echo "<br/>";
 
   
 echo "This is a testing comment ";
-$link = mysql_connect($host, 'root',$pass)
+$link = mysql_connect($host, $user, $pass)
     or die('Could not connect: ' . mysql_error());
     
 echo "My IP adress is ".$_SERVER['SERVER_ADDR'];
